@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAZER Ventures LLP | Building from Bastar</title>
+<meta name="description" content="ZAZER Ventures LLP is a multi vertical holding company based in Bastar, Chhattisgarh. Our portfolio spans retail, hospitality, agriculture, media, real estate tech, logistics, and art.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --bg-alt: #F2F1ED;
+    --text: #1A1A1A;
+    --text-muted: #6B6B6B;
+    --accent: #0A0A0A;
+    --accent-warm: #C4793A;
+    --border: #E4E3DF;
+    --card-bg: #FFFFFF;
+    --card-hover-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 16px 40px rgba(0,0,0,0.10);
+    --radius: 16px;
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250, 250, 248, 0.85);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .nav-logo svg { height: 32px; width: auto; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; letter-spacing: 0.01em; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero { padding: 160px 0 100px; position: relative; }
+  .hero-content { max-width: 820px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 100px;
+    padding: 6px 16px; font-size: 0.8rem; font-weight: 500; color: var(--text-muted);
+    margin-bottom: 32px; letter-spacing: 0.04em; text-transform: uppercase;
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  .hero-tag .dot { width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; animation: pulse 2s infinite; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700;
+    line-height: 1.1; letter-spacing: -0.03em; color: var(--text);
+    margin-bottom: 24px; animation: fadeInUp 0.8s ease-out 0.1s both;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent-warm); }
+  .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; line-height: 1.7; animation: fadeInUp 0.8s ease-out 0.2s both; }
+  .hero-stats { display: flex; gap: 48px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); animation: fadeInUp 0.8s ease-out 0.3s both; }
+  .stat-item h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+  .stat-item p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; }
+
+  /* SECTIONS */
+  .section-header { margin-bottom: 56px; }
+  .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+
+  /* VENTURES GRID */
+  #ventures { padding: 80px 0 100px; }
+  .ventures-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .venture-card {
+    background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+    overflow: hidden; transition: var(--transition); position: relative;
+    opacity: 0; transform: translateY(24px);
+    text-decoration: none; color: inherit; display: block; cursor: default;
+  }
+  a.venture-card { cursor: pointer; }
+  .venture-card.visible { opacity: 1; transform: translateY(0); }
+  .venture-card:hover { box-shadow: var(--card-hover-shadow); transform: translateY(-4px); border-color: transparent; }
+  .venture-card.visible:hover { transform: translateY(-4px); }
+
+  .card-visual {
+    height: 200px; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .card-visual.bg-dark { background: #0A0A0A; }
+  .card-visual.bg-green { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+  .card-visual.bg-warm { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+  .card-visual.bg-purple { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+  .card-visual.bg-charcoal { background: linear-gradient(135deg, #1a1a1a, #2d2d2d); }
+  .card-visual.bg-indigo { background: linear-gradient(135deg, #1A237E, #283593); }
+  .card-visual.bg-slate { background: linear-gradient(135deg, #37474F, #455A64); }
+  .card-visual.bg-cyan { background: linear-gradient(135deg, #006064, #00838F); }
+  .card-visual.bg-red { background: linear-gradient(135deg, #B71C1C, #C62828); }
+
+  .card-body { padding: 24px; }
+  .card-category { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 8px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .card-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  .card-status { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.78rem; font-weight: 500; color: var(--text-muted); }
+  .card-status .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .card-status .status-dot.active { background: #4CAF50; }
+  .card-status .status-dot.building { background: #FF9800; }
+  .card-status .status-dot.planning { background: #2196F3; }
+  .card-status .status-dot.coming { background: #9E9E9E; }
+
+  .coming-soon-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 100px;
+    padding: 4px 12px; font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #fff; z-index: 2;
+  }
+
+  .card-link-hint {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 12px; font-size: 0.78rem; font-weight: 500; color: var(--accent-warm);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .venture-card:hover .card-link-hint { opacity: 1; }
+
+  /* VENTURE LOGO SVG — unified monogram style */
+  .venture-monogram {
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* FOHRKAST BOOKS */
+  #fohrkast { padding: 80px 0 100px; background: var(--bg-alt); }
+  .books-scroll {
+    display: flex; gap: 24px; overflow-x: auto; padding-bottom: 16px;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .books-scroll::-webkit-scrollbar { height: 4px; }
+  .books-scroll::-webkit-scrollbar-track { background: transparent; }
+  .books-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .book-card {
+    flex: 0 0 220px; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: var(--transition); cursor: default;
+  }
+  .book-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 8px 32px rgba(0,0,0,0.14); }
+  .book-card img { width: 100%; height: 330px; object-fit: cover; display: block; }
+
+  /* ABOUT */
+  #about { padding: 100px 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .about-text p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+  .about-values { display: grid; gap: 24px; }
+  .value-item { padding: 24px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; transition: var(--transition); }
+  .value-item:hover { border-color: var(--accent-warm); }
+  .value-item h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
+  .value-item p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { background: var(--accent); color: #fff; padding: 48px 0; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+  .footer-brand { display: flex; align-items: center; gap: 12px; }
+  .footer-brand svg { height: 28px; }
+  .footer-text { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .footer-location { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: right; }
+  .footer-location strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+  @media (max-width: 1024px) {
+    .ventures-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  @media (max-width: 768px) {
+    nav .container { height: 60px; }
+    .nav-links { display: none; }
+    .hero { padding: 120px 0 64px; }
+    .hero-stats { gap: 32px; flex-wrap: wrap; }
+    .ventures-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-location { text-align: center; }
+    .book-card { flex: 0 0 170px; }
+    .book-card img { height: 255px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" font-family="'Playfair Display', serif" font-size="28" font-weight="700" fill="#1A1A1A" letter-spacing="-0.5">ZAZER</text>
+        <text x="0" y="28" font-family="'Playfair Display', serif" font-size="28" font-weight="700" fill="none" stroke="#C4793A" stroke-width="0.3" letter-spacing="-0.5">ZAZER</text>
+      </svg>
+      <span style="font-size:0.8rem;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Ventures</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#ventures">Portfolio</a></li>
+      <li><a href="#fohrkast">Publications</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag"><span class="dot"></span> Based in Bastar, Chhattisgarh</div>
+      <h1>Building ventures<br>from <em>the heart</em><br>of India.</h1>
+      <p class="hero-desc">ZAZER Ventures LLP is a multi vertical holding company rooted in Bastar. We build and operate businesses across retail, hospitality, agriculture, media, technology, logistics, and art.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><h3>8</h3><p>Ventures</p></div>
+        <div class="stat-item"><h3>7</h3><p>Industries</p></div>
+        <div class="stat-item"><h3>2021</h3><p>Founded</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section id="ventures">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">Our Ventures</h2>
+    </div>
+    <div class="ventures-grid">
+
+      <!-- Little Town Superstore -->
+      <a href="https://littletownsuperstore.com" target="_blank" rel="noopener" class="venture-card" data-delay="0">
+        <div class="card-visual bg-dark">
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <rect x="60" y="20" width="80" height="55" rx="4" fill="none" stroke="#4CAF50" stroke-width="2.5"/>
+            <line x1="100" y1="20" x2="100" y2="75" stroke="#4CAF50" stroke-width="1.5" opacity="0.4"/>
+            <line x1="60" y1="47" x2="140" y2="47" stroke="#4CAF50" stroke-width="1.5" opacity="0.4"/>
+            <rect x="88" y="55" width="24" height="20" rx="2" fill="#4CAF50" opacity="0.3"/>
+            <polygon points="50,22 100,5 150,22" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linejoin="round"/>
+            <text x="100" y="95" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" font-weight="600" fill="#4CAF50" letter-spacing="2">LITTLE TOWN</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Retail</p>
+          <h3 class="card-title">Little Town Superstore</h3>
+          <p class="card-desc">A modern retail experience in Jagdalpur. Everyday essentials meets community gathering space.</p>
+          <div class="card-status"><span class="status-dot active"></span> Operational</div>
+          <div class="card-link-hint">Visit website &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Whispering Leaves -->
+      <div class="venture-card" data-delay="1">
+        <div class="card-visual bg-green">
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <circle cx="100" cy="40" r="28" fill="none" stroke="#2E7D32" stroke-width="2"/>
+            <path d="M100 25 Q90 35 100 45 Q110 35 100 25Z" fill="#2E7D32" opacity="0.6"/>
+            <path d="M92 30 Q85 40 95 45" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M108 30 Q115 40 105 45" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="100" y1="45" x2="100" y2="58" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M90 55 Q100 48 110 55" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="100" y="90" text-anchor="middle" font-family="'Playfair Display',serif" font-size="9" font-weight="600" fill="#2E7D32" letter-spacing="1">WHISPERING LEAVES</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Hospitality</p>
+          <h3 class="card-title">Whispering Leaves Café</h3>
+          <p class="card-desc">Where every sip tells a story. A boutique café experience rooted in Bastar's natural beauty.</p>
+          <div class="card-status"><span class="status-dot active"></span> Operational</div>
+        </div>
+      </div>
+
+      <!-- Fohrkast Studios -->
+      <div class="venture-card" data-delay="2">
+        <div class="card-visual bg-dark">
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <defs><linearGradient id="fkGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00B0FF"/><stop offset="100%" style="stop-color:#00E5FF"/></linearGradient></defs>
+            <text x="100" y="48" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="28" font-weight="700" fill="url(#fkGrad)" letter-spacing="-1">FKT</text>
+            <line x1="65" y1="55" x2="135" y2="55" stroke="url(#fkGrad)" stroke-width="1" opacity="0.4"/>
+            <text x="100" y="70" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="7" font-weight="600" fill="#00B0FF" letter-spacing="3" opacity="0.8">STUDIOS</text>
+            <text x="100" y="90" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="8" font-weight="500" fill="#00B0FF" letter-spacing="1.5" opacity="0.5">FOHRKAST</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Media &amp; Publishing</p>
+          <h3 class="card-title">Fohrkast Studios</h3>
+          <p class="card-desc">AI focused media brand and publishing studio. eBooks, the "Make Money in 2025" series, and original content.</p>
+          <div class="card-status"><span class="status-dot active"></span> Operational</div>
+        </div>
+      </div>
+
+      <!-- Aum Khet -->
+      <a href="https://maps.google.com/?q=Aum+Khet+Farm+Jagdalpur+Bastar+Chhattisgarh" target="_blank" rel="noopener" class="venture-card" data-delay="3">
+        <div class="card-visual bg-warm">
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <text x="100" y="35" text-anchor="middle" font-family="'Playfair Display',serif" font-size="26" font-weight="700" fill="#E65100" letter-spacing="-0.5" opacity="0.15">&#x0950;</text>
+            <path d="M100 25 Q88 40 95 50 L100 45 L105 50 Q112 40 100 25Z" fill="#E65100" opacity="0.7"/>
+            <line x1="100" y1="50" x2="100" y2="68" stroke="#E65100" stroke-width="2" stroke-linecap="round"/>
+            <path d="M88 62 Q94 56 100 60 Q106 56 112 62" fill="none" stroke="#E65100" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M82 68 Q91 62 100 66 Q109 62 118 68" fill="none" stroke="#E65100" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <text x="100" y="88" text-anchor="middle" font-family="'Playfair Display',serif" font-size="10" font-weight="600" fill="#E65100" letter-spacing="2">AUM KHET</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Agriculture</p>
+          <h3 class="card-title">Aum Khet</h3>
+          <p class="card-desc">Ultra high density farming in Bastar. Intensive agriculture, exotic cultivation, and sustainable practices on our own land.</p>
+          <div class="card-status"><span class="status-dot building"></span> Building</div>
+          <div class="card-link-hint">View on Maps &rarr;</div>
+        </div>
+      </a>
+
+      <!-- 9o9.ai -->
+      <a href="https://9o9.ai" target="_blank" rel="noopener" class="venture-card" data-delay="4">
+        <div class="card-visual bg-purple">
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <defs><linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#7B1FA2"/><stop offset="100%" style="stop-color:#CE93D8"/></linearGradient></defs>
+            <text x="100" y="52" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="32" font-weight="700" fill="url(#nGrad)" letter-spacing="-1">9o9</text>
+            <text x="100" y="68" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" font-weight="600" fill="#7B1FA2" letter-spacing="0.5" opacity="0.7">.ai</text>
+            <circle cx="68" cy="28" r="3" fill="#CE93D8" opacity="0.4"/>
+            <circle cx="132" cy="28" r="3" fill="#CE93D8" opacity="0.4"/>
+            <circle cx="100" cy="18" r="2" fill="#7B1FA2" opacity="0.3"/>
+            <line x1="68" y1="28" x2="100" y2="18" stroke="#CE93D8" stroke-width="0.8" opacity="0.3"/>
+            <line x1="100" y1="18" x2="132" y2="28" stroke="#CE93D8" stroke-width="0.8" opacity="0.3"/>
+            <text x="100" y="90" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="7" font-weight="500" fill="#7B1FA2" letter-spacing="2" opacity="0.5">REAL ESTATE TECH</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Technology</p>
+          <h3 class="card-title">9o9.ai</h3>
+          <p class="card-desc">AI powered real estate technology platform. Reimagining property discovery and transactions in India.</p>
+          <div class="card-status"><span class="status-dot planning"></span> In Development</div>
+          <div class="card-link-hint">Visit website &rarr;</div>
+        </div>
+      </a>
+
+      <!-- The Black Foundry -->
+      <a href="https://theblackfoundry.com" target="_blank" rel="noopener" class="venture-card" data-delay="5">
+        <div class="card-visual bg-charcoal">
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <defs><linearGradient id="bfGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FF6F00"/><stop offset="100%" style="stop-color:#FFB300"/></linearGradient></defs>
+            <text x="100" y="45" text-anchor="middle" font-family="'Playfair Display',serif" font-size="22" font-weight="700" fill="url(#bfGrad)" letter-spacing="-0.5">TBF</text>
+            <line x1="72" y1="52" x2="128" y2="52" stroke="url(#bfGrad)" stroke-width="1" opacity="0.4"/>
+            <text x="100" y="66" text-anchor="middle" font-family="'Playfair Display',serif" font-size="6.5" font-weight="500" fill="#FFB300" letter-spacing="2" opacity="0.7">THE BLACK FOUNDRY</text>
+            <circle cx="100" cy="22" r="2" fill="#FFB300" opacity="0.6"/>
+            <circle cx="90" cy="18" r="1.2" fill="#FF6F00" opacity="0.4"/>
+            <circle cx="112" cy="20" r="1.5" fill="#FFB300" opacity="0.3"/>
+            <text x="100" y="88" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="6" font-weight="500" fill="#FFB300" letter-spacing="2.5" opacity="0.5">EST. MMXXV &middot; INDIA</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Art &amp; Luxury</p>
+          <h3 class="card-title">The Black Foundry</h3>
+          <p class="card-desc">Where reality is forged into art. Six collections, each piece singular, limited to 25 works. Real objects embedded in hand painted art, sealed in museum resin. India's only luxury studio of its kind.</p>
+          <div class="card-status"><span class="status-dot active"></span> Live</div>
+          <div class="card-link-hint">Visit website &rarr;</div>
+        </div>
+      </a>
+
+      <!-- The Faraway Project -->
+      <div class="venture-card" data-delay="6">
+        <div class="card-visual bg-indigo">
+          <span class="coming-soon-badge">Coming Soon</span>
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <defs><linearGradient id="fwGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#7986CB"/><stop offset="100%" style="stop-color:#C5CAE9"/></linearGradient></defs>
+            <!-- Warehouse/building blocks -->
+            <rect x="65" y="35" width="30" height="30" rx="2" fill="none" stroke="url(#fwGrad)" stroke-width="2" opacity="0.7"/>
+            <rect x="100" y="28" width="35" height="37" rx="2" fill="none" stroke="url(#fwGrad)" stroke-width="2" opacity="0.9"/>
+            <line x1="100" y1="65" x2="100" y2="28" stroke="#C5CAE9" stroke-width="0.8" opacity="0.3" stroke-dasharray="2 2"/>
+            <rect x="108" y="48" width="10" height="17" rx="1" fill="#7986CB" opacity="0.3"/>
+            <rect x="73" y="48" width="8" height="8" rx="1" fill="#7986CB" opacity="0.25"/>
+            <!-- Road line -->
+            <line x1="50" y1="65" x2="150" y2="65" stroke="#C5CAE9" stroke-width="1.5" opacity="0.4"/>
+            <line x1="55" y1="68" x2="145" y2="68" stroke="#C5CAE9" stroke-width="0.5" opacity="0.2" stroke-dasharray="4 4"/>
+            <text x="100" y="88" text-anchor="middle" font-family="'Playfair Display',serif" font-size="8" font-weight="600" fill="#C5CAE9" letter-spacing="1.5">THE FARAWAY PROJECT</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Logistics &amp; Warehousing</p>
+          <h3 class="card-title">The Faraway Project</h3>
+          <p class="card-desc">An 8 acre warehouse park on the Raipur Vizag Expressway. Bastar's first organized logistics and warehousing hub, built for companies operating in this part of the country.</p>
+          <div class="card-status"><span class="status-dot coming"></span> Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- Fohrkast (YouTube) -->
+      <div class="venture-card" data-delay="7">
+        <div class="card-visual bg-red">
+          <span class="coming-soon-badge">Coming Soon</span>
+          <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+            <!-- Play button -->
+            <rect x="70" y="22" width="60" height="40" rx="10" fill="none" stroke="#FFCDD2" stroke-width="2" opacity="0.6"/>
+            <polygon points="95,34 95,50 108,42" fill="#FFCDD2" opacity="0.8"/>
+            <!-- Waveform / AI signal -->
+            <line x1="65" y1="75" x2="70" y2="70" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <line x1="75" y1="70" x2="80" y2="78" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="85" y1="78" x2="90" y2="68" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            <line x1="95" y1="68" x2="100" y2="80" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="105" y1="80" x2="110" y2="70" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            <line x1="115" y1="70" x2="120" y2="76" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="125" y1="76" x2="130" y2="72" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <line x1="135" y1="72" x2="138" y2="74" stroke="#FFCDD2" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+            <text x="100" y="95" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="8" font-weight="600" fill="#FFCDD2" letter-spacing="2">FOHRKAST</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-category">YouTube &amp; Content</p>
+          <h3 class="card-title">Fohrkast</h3>
+          <p class="card-desc">A YouTube series about all things AI. Part learning journey, part passionate exploration. Think Top Gear, but for artificial intelligence. Three hosts, big opinions, real discoveries.</p>
+          <div class="card-status"><span class="status-dot coming"></span> Coming Soon</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOHRKAST PUBLICATIONS -->
+<section id="fohrkast">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Fohrkast Studios</p>
+      <h2 class="section-title">Make Money in 2025 Series</h2>
+    </div>
+    <div class="books-scroll">
+      <div class="book-card"><img src="images/Profit_from_the_Storm_480dpi300__1_.png" alt="Profit from the Storm"></div>
+      <div class="book-card"><img src="images/Apr_18__2025__11_54_25_AM.png" alt="Backyard Billionaire"></div>
+      <div class="book-card"><img src="images/image.png" alt="AI and Chill"></div>
+      <div class="book-card"><img src="images/ChatGPT_Image_Apr_6__2025__06_41_19_PM.png" alt="The 5 Year Farm Plan"></div>
+      <div class="book-card"><img src="images/Cover.png" alt="Recession? Hold My Latte."></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Rooted in Bastar</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>ZAZER Ventures LLP is a holding company headquartered in Jagdalpur, Bastar, one of India's most culturally rich and ecologically diverse regions.</p>
+        <p>We believe the next wave of Indian entrepreneurship won't just come from metros. It'll come from people who know their land, their community, and aren't afraid to build something original from the ground up.</p>
+        <p>From a superstore to a warehouse park, from an AI media brand to a luxury art studio, every venture under ZAZER is a bet on Bastar's potential.</p>
+      </div>
+      <div class="about-values">
+        <div class="value-item">
+          <h4>Build Locally, Think Globally</h4>
+          <p>Every venture starts with a local need and grows with a global perspective.</p>
+        </div>
+        <div class="value-item">
+          <h4>Ship Fast, Learn Faster</h4>
+          <p>We prototype quickly, test in the real market, and iterate based on ground truth, not theory.</p>
+        </div>
+        <div class="value-item">
+          <h4>Compounding Bets</h4>
+          <p>Each venture strengthens the others. Shared learnings, shared resources, compound returns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 120 28" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="22" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#fff" letter-spacing="-0.5">ZAZER</text>
+        </svg>
+        <span class="footer-text">Ventures LLP</span>
+      </div>
+      <div class="footer-location">
+        <strong>Jagdalpur, Bastar</strong><br>
+        Chhattisgarh, India
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">
+      <p class="footer-text">&copy; 2025 ZAZER Ventures LLP. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => { entry.target.classList.add('visible'); }, delay * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.venture-card').forEach(card => observer.observe(card));
+
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 20 ? 'var(--border)' : 'transparent';
+  });
+</script>
+
+</body>
+</html>
